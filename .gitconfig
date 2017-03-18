@@ -1,0 +1,39 @@
+[user]
+	name = Arthur Nguyen
+	email = arth.nguyen@gmail.com
+
+[alias]
+	st = status
+	ci = commit
+	pr = !hub pull-request
+
+[core]
+	excludesfile = ~/.gitignore
+
+[push]
+	default = current
+
+[color]
+	diff = true
+	show = true
+	status = true
+
+[hub]
+	protocol = https
+
+[pager]
+	grep = false
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[commit]
+	template = ~/.dotfiles/commit_template.txt
+
+[pull]
+	rebase = preserve

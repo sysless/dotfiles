@@ -1,0 +1,36 @@
+#run in console out of X
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+border_inner_margin 0
+border_outer_margin 0
+
+#behaviour
+update_interval 15.0
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#font
+use_xft yes
+
+# JSON for i3bar
+# Stuff after 'TEXT' will be formatted on screen
+
+TEXT
+  [{ "full_text" : "${cpu}%" , "color" : "\#e33a6e" },
+  { "full_text" : "${mem}" , "color" : "\#e0da37" },
+  { "full_text" : "${addrs wlan0}" , "color" : "\#e0da37" },
+  { "full_text":"${battery_short}", "color" : "\#DC322F" },
+  { "full_text" : "${time %d/%m/%Y} ${time %H:%M}" , "color" : "\#778baf" , "separator" : false}
+],
