@@ -14,6 +14,9 @@ if [ `uname` == "Darwin" ]; then
     [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install ack colordiff emacs python hub
 
+    # Cask
+    brew cask install google-chrome skype vlc iterm2 karabiner flux logitech-options
+
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
 
     # symlink /home for compatibility with linux
