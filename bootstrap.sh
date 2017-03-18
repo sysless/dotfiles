@@ -17,6 +17,11 @@ if [ `uname` == "Darwin" ]; then
     # Cask
     brew cask install google-chrome skype vlc iterm2 karabiner flux logitech-options
 
+    # iTerm2 conf
+    [ -! L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
+	rm /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist && \
+	ln -s $DOTFILES/com.googlecode.iterm2.plist /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist
+
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
 
     # symlink /home for compatibility with linux
@@ -26,7 +31,6 @@ if [ `uname` == "Darwin" ]; then
 	sudo ln -s /Users /home
 
     # TODO: install powerline fonts
-    # TODO: iTerm2 conf
 elif [ `uname` == "Linux" ]; then
     [ ! -f /etc/sudoers.d/$USER ] && sudo sh -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$USER"
 
