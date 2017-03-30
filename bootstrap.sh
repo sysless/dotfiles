@@ -15,7 +15,7 @@ if [ `uname` == "Darwin" ]; then
     brew install ack colordiff emacs python hub nmap
 
     # Cask
-    brew cask install google-chrome skype vlc iterm2 karabiner flux logitech-options cyberduck
+    brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner flux logitech-options cyberduck docker
 
     # iTerm2 conf
     [ -! L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
@@ -76,7 +76,7 @@ fi
 
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
-pip install diff-highlight
+pip install boto3 requests diff-highlight awscli awsebcli
 
 # TODO: install heroku toolbelt
 # TODO: install travis
