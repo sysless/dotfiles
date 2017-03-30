@@ -18,14 +18,14 @@ if [ `uname` == "Darwin" ]; then
     brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner flux logitech-options cyberduck docker
 
     # iTerm2 conf
-    [ -! L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
+    [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
 	rm /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist && \
 	ln -s $DOTFILES/com.googlecode.iterm2.plist /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist
 
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
 
     # symlink /home for compatibility with linux
-    [ ! -L /home ] && sudo sed -i 's|/home|#/home|' && \
+    [ ! -L /home ] && sudo sed -i.bak 's|/home|#/home|' /etc/auto_master && \
 	sudo automount -cv && \
 	sudo rm -rf /home && \
 	sudo ln -s /Users /home
