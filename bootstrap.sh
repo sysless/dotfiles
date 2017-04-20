@@ -12,10 +12,10 @@ export DOTFILES=~/.dotfiles
 if [ `uname` == "Darwin" ]; then
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff emacs python hub nmap
+    brew install ack colordiff emacs python hub nmap gnupg
 
     # Cask
-    brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner flux logitech-options cyberduck docker
+    brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner-elements flux logitech-options cyberduck docker alfred
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
@@ -31,6 +31,10 @@ if [ `uname` == "Darwin" ]; then
 	sudo ln -s /Users /home
 
     # TODO: install powerline fonts
+    # TODO: keyboard shortcut switch input
+    # TODO: change default browser
+    # TODO: sound icon
+    # TODO: bluetooth icon
 elif [ `uname` == "Linux" ]; then
     [ ! -f /etc/sudoers.d/$USER ] && sudo sh -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$USER"
 
