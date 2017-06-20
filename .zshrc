@@ -89,6 +89,7 @@ export PIP_REQUIRE_VIRTUALENV=true
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias emacs="emacsclient -nw"
 alias e="emacs"
+alias aws-mfa=". /home/$USER/.dotfiles/aws-mfa.sh"
 
 # host specific configuration
 source ~/.myzshrc
