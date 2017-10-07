@@ -30,6 +30,7 @@ if [ `uname` == "Darwin" ]; then
 	sudo rm -rf /home && \
 	sudo ln -s /Users /home
 
+    [ ! -L ~/.pydistutils.cfg ] && ln -sf ~/config/.pydistutils.cfg ~/
     # TODO: install powerline fonts
     # TODO: keyboard shortcut switch input
     # TODO: change default browser
