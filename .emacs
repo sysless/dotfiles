@@ -86,13 +86,41 @@
 
 (require 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(custom-set-variables '(coffee-tab-width 2))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
+ '(global-hl-line-mode t)
+ '(js-indent-level 2)
+ '(js2-basic-offset 2)
+ '(package-selected-packages
+   (quote
+    (rjsx-mode company tide yaml-mode php-mode highlight-parentheses git-gutter git-commit flycheck coffee-mode))))
 
 ;(put 'upcase-region 'disabled nil)
 
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs trailing))
 (global-whitespace-mode t)
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+(setq typescript-indent-level 2)
+(setq tide-format-options
+      '(:indentSize 2 :tabSize 4))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basics
@@ -116,17 +144,13 @@
  scroll-bar-mode nil
  mouse-wheel-mode t
  comint-prompt-read-only t
+ indent-tabs-mode nil
  )
 
 (transient-mark-mode t)
 
 (menu-bar-mode 0)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(global-hl-line-mode t))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Short cut
@@ -298,8 +322,8 @@
 	     (c-set-style "bsd")
 	     (setq-default indent-tabs-mode nil)
              (setq tab-width 4)
-             (setq standard-indent 4)
-             (setq c-basic-offset 4)
+             (setq standard-indent 2)
+             (setq c-basic-offset 2)
              (c-set-offset 'innamespace 0)
 	     ;; (doxymacs-mode t)
              (doc-mode t)
@@ -327,6 +351,7 @@
 	  '(lambda ()
 	     (define-key sh-mode-map (kbd "C-c C-c") 'comment-region)
 	     (define-key sh-mode-map (kbd "C-c C-q") 'indent-region)
+             (setq indent-tabs-mode nil)
 	     )
 	  )
 
@@ -357,10 +382,42 @@
 	  '(lambda ()
              (hs-minor-mode)
              (setq tab-width 4)
-             (setq standard-indent 4)
-             (setq c-basic-offset 4)
+             (setq standard-indent 2)
+             (setq c-basic-offset 2)
 	     (setq-default indent-tabs-mode nil)
              (c-set-offset 'substatement-open 0)
              ))
 
 ; EOF
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground "#bbbbbb" :weight light))))
+ '(ac-completion-face ((t (:foreground "white" :underline t))))
+ '(cursor ((t (:background "red"))))
+ '(ecb-default-highlight-face ((t (:background "gray42"))))
+ '(flycheck-error ((t (:background "red"))))
+ '(flycheck-info ((t (:background "blue"))))
+ '(flycheck-warning ((t (:background "yellow" :foreground "black"))))
+ '(font-lock-builtin-face ((t (:foreground "#78f2c9"))))
+ '(font-lock-comment-delimiter-face ((t (:foreground "#c0bc6c"))))
+ '(font-lock-comment-face ((t (:foreground "gray42"))))
+ '(font-lock-constant-face ((t (:foreground "#e5786d"))))
+ '(font-lock-function-name-face ((t (:foreground "#f1aa7e"))))
+ '(font-lock-keyword-face ((t (:foreground "#87afff"))))
+ '(font-lock-preprocessor-face ((t (:foreground "#e5786d"))))
+ '(font-lock-string-face ((t (:foreground "#95e454"))))
+ '(font-lock-type-face ((t (:foreground "#caeb82"))))
+ '(font-lock-variable-name-face ((t (:foreground "#f1ba7e"))))
+ '(highlight ((t (:background "gray15" :height 1.0))))
+ '(linum ((t (:foreground "gray42" :background "#111111"))))
+ '(minibuffer-prompt ((t (:foreground "#36b5b1"))))
+ '(mode-line ((default (:foreground "#bbbbbb" :background "#0087d7"))))
+ '(mode-line-inactive ((default (:foreground "#bbbbbb" :background "#444444"))))
+ '(mouse ((t (:background "white"))))
+ '(popup-isearch-match ((t (:background "sky blue" :foreground "red"))))
+ '(region ((t (:background "#253B76"))))
+ '(vertical-border ((t (:foreground "black"))))
+ '(whitespace-tab ((t (:background "gray24")))))
