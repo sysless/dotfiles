@@ -15,7 +15,7 @@ if [ `uname` == "Darwin" ]; then
     brew install ack colordiff emacs python hub nmap gnupg jq
 
     # Cask
-    brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner-elements flux logitech-options cyberduck docker alfred
+    brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner-elements logitech-options cyberduck docker alfred
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
