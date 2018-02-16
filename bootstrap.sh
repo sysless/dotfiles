@@ -12,10 +12,10 @@ export DOTFILES=~/.dotfiles
 if [ `uname` == "Darwin" ]; then
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff emacs python hub nmap gnupg jq
+    brew install ack colordiff emacs python hub nmap gnupg jq nvm
 
     # Cask
-    brew cask install bettertouchtool google-chrome skype vlc iterm2 karabiner-elements logitech-options cyberduck docker alfred
+    brew cask install google-chrome skype vlc iterm2 docker alfred spotify
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
