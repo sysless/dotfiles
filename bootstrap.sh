@@ -32,11 +32,16 @@ if [ `uname` == "Darwin" ]; then
 	sudo ln -s /Users /home
 
     [ ! -L ~/.pydistutils.cfg ] && ln -sf ~/config/.pydistutils.cfg ~/
+
+    [ ! -d ~/Downloads/screencapture ] && mkdir ~/Downloads/screencapture && \
+    defaults write com.apple.screencapture location /Users/hiten/Downloads/screencapture
+
     # TODO: install powerline fonts
     # TODO: keyboard shortcut switch input
     # TODO: change default browser
     # TODO: sound icon
     # TODO: bluetooth icon
+    # TODO: disable spotlight
 elif [ `uname` == "Linux" ]; then
     [ ! -f /etc/sudoers.d/$USER ] && sudo sh -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$USER"
 
