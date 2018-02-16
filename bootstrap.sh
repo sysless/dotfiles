@@ -23,6 +23,7 @@ if [ `uname` == "Darwin" ]; then
 	ln -s $DOTFILES/com.googlecode.iterm2.plist /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist
 
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
+    [ "$SHELL" != "/bin/zsh" ] && chpass -s /bin/zsh
 
     # symlink /home for compatibility with linux
     [ ! -L /home ] && sudo sed -i.bak 's|/home|#/home|' /etc/auto_master && \
