@@ -95,5 +95,6 @@ pip install diff-highlight awscli
 [ ! -L ~/.emacs ] && ln -sf $DOTFILES/.emacs ~/
 [ ! -L ~/.tmux.conf ] && ln -sf $DOTFILES/.tmux.conf ~/
 [ ! -L ~/.gitconfig ] && ln -sf $DOTFILES/.gitconfig ~/
+[ ! -L ~/.eslintrc.js ] && ln -sf $DOTFILES/.eslintrc.js ~/
 
 exit 0
