@@ -12,10 +12,10 @@ export DOTFILES=~/.dotfiles
 if [ `uname` == "Darwin" ]; then
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff emacs python hub nmap gnupg jq nvm telnet mysql
+    brew install ack colordiff python jq nvm telnet
 
     # Cask
-    brew cask install google-chrome skype vlc iterm2 docker alfred spotify
+    brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify visual-studio-code docker
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
@@ -37,7 +37,6 @@ if [ `uname` == "Darwin" ]; then
     defaults write com.apple.screencapture location /Users/hiten/Downloads/screencapture
 
     # TODO: install powerline fonts
-    # TODO: keyboard shortcut switch input
     # TODO: change default browser
     # TODO: sound icon
     # TODO: bluetooth icon
@@ -87,7 +86,7 @@ fi
 
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
-pip install boto3 requests diff-highlight awscli awsebcli
+pip install diff-highlight awscli
 
 # TODO: install heroku toolbelt
 # TODO: install travis
