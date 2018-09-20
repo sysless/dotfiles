@@ -15,7 +15,7 @@ if [ `uname` == "Darwin" ]; then
     brew install ack colordiff python jq nvm telnet
 
     # Cask
-    brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify visual-studio-code docker
+    brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify visual-studio-code docker android-file-transfer
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
@@ -31,7 +31,7 @@ if [ `uname` == "Darwin" ]; then
 	sudo rm -rf /home && \
 	sudo ln -s /Users /home
 
-    [ ! -L ~/.pydistutils.cfg ] && ln -sf ~/config/.pydistutils.cfg ~/
+    [ ! -L ~/.pydistutils.cfg ] && ln -sf $DOTFILES/.pydistutils.cfg ~/
 
     [ ! -d ~/Downloads/screencapture ] && mkdir ~/Downloads/screencapture && \
     defaults write com.apple.screencapture location /Users/hiten/Downloads/screencapture
