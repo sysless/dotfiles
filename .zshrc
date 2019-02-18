@@ -114,6 +114,7 @@ source $(brew --prefix nvm)/nvm.sh  # This loads nvm
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
+export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -121,3 +122,6 @@ export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/hiten/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/hiten/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# aws-vault
+export AWS_VAULT_KEYCHAIN_NAME="login"
