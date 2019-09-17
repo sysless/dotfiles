@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/$USER/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,7 +54,7 @@ plugins=(sudo git aws pip python pylint pep8 virtualenv django brew docker)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/sbin:/usr/bin:/sbin:/bin:/home/$USER/.rvm/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,22 +89,22 @@ export PIP_REQUIRE_VIRTUALENV=true
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias emacs="emacsclient -nw"
 alias e="emacs"
-alias aws-mfa=". /home/$USER/.dotfiles/aws-mfa.sh"
+alias aws-mfa=". $HOME/.dotfiles/aws-mfa.sh"
 
 # host specific configuration
 source ~/.myzshrc
 
 # added by travis gem
-[ -f /home/$USER/.travis/travis.sh ] && source /home/$USER/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f /home/$USER/Downloads/google-cloud-sdk/path.zsh.inc ]; then
-  source "/home/$USER/Downloads/google-cloud-sdk/path.zsh.inc"
+if [ -f $HOME/Downloads/google-cloud-sdk/path.zsh.inc ]; then
+  source "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"
 fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f /home/$USER/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
-  source "/home/$USER/Downloads/google-cloud-sdk/completion.zsh.inc"
+if [ -f $HOME/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+  source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"
 fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -125,3 +125,12 @@ export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 # aws-vault
 export AWS_VAULT_KEYCHAIN_NAME="login"
+function aws-login() { aws-vault login --stdout "$@" | xargs -t /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --incognito --new-window }
+alias aws-login=aws-login
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/hiten/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/hiten/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
