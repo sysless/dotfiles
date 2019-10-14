@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 cd "$(dirname "${BASH_SOURCE}")";
 
@@ -10,12 +11,17 @@ fi
 export DOTFILES=~/.dotfiles
 
 if [ `uname` == "Darwin" ]; then
+    xcode-select -p
+    [ "$?" == "2" ] && xcode-select --install
+
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff python jq nvm telnet
+    brew install ack colordiff python@2 python jq nvm telnet
 
     # Cask
-    brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify visual-studio-code docker android-file-transfer
+    brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify android-file-transfer
+    # Cask Dev
+    brew cask install docker visual-studio-code postman fastlane aws-vault
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
@@ -86,7 +92,7 @@ fi
 
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
-pip install diff-highlight awscli
+pip install --user diff-highlight awscli
 
 # TODO: install heroku toolbelt
 # TODO: install travis
