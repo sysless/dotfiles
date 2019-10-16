@@ -21,7 +21,7 @@ if [ `uname` == "Darwin" ]; then
     # Cask
     brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify android-file-transfer
     # Cask Dev
-    brew cask install docker visual-studio-code postman fastlane aws-vault
+    brew cask install docker visual-studio-code android-studio postman fastlane aws-vault
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
