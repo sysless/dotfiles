@@ -90,6 +90,9 @@ fi
 [ ! -L ~/.zshrc ] && ln -sf $DOTFILES/.zshrc ~/.zshrc
 [ "$SHELL" != "/bin/zsh" ] && chsh --shell /bin/zsh
 
+# RVM
+[ ! -f "$HOME/.rvm/bin/rvm" ] && curl -sSL https://get.rvm.io | bash -s stable --ruby
+
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
 pip install --user diff-highlight awscli
