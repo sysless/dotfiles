@@ -47,7 +47,7 @@ if [ `uname` == "Darwin" ]; then
     # TODO: sound icon
     # TODO: bluetooth icon
     # TODO: disable spotlight
-elif [ `uname` == "Linux" ]; then
+elif [ `uname` == "Linux" ] && [ -z "${VSONLINE_BUILD}" ]; then
     [ ! -f /etc/sudoers.d/$USER ] && sudo sh -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$USER"
 
     # Aptitude packages

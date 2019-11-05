@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo git aws pip python pylint pep8 virtualenv django brew docker)
+plugins=(sudo git aws pip python pylint pep8 virtualenv django brew docker ssh-agent)
 
 # User configuration
 
@@ -92,7 +92,9 @@ alias e="emacs"
 alias aws-mfa=". $HOME/.dotfiles/aws-mfa.sh"
 
 # host specific configuration
-source ~/.myzshrc
+if [ -f $HOME/.myzshrc ]; then
+  source ~/.myzshrc
+fi
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
@@ -108,7 +110,9 @@ if [ -f $HOME/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
 fi
 
 export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh  # This loads nvm
+if [ -x "$(command -v brew)" ]; then
+  source $(brew --prefix nvm)/nvm.sh  # This loads nvm
+fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -131,3 +135,7 @@ alias aws-login=aws-login
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/hiten/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/hiten/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+if [ ! -z "${VSONLINE_BUILD}" ]; then
+  export PATH=$PATH:/opt/oryx:/opt/nodejs/lts/bin:/opt/dotnet/sdks/lts:/opt/python/latest/bin:/opt/yarn/stable/bin:~/.local/bin:~/.npm-global/bin
+fi
