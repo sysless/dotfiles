@@ -93,6 +93,9 @@ fi
 # RVM
 [ ! -f "$HOME/.rvm/bin/rvm" ] && curl -sSL https://get.rvm.io | bash -s stable --ruby
 
+# NVM
+[ ! -d "$HOME/.nvm" ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
 pip install --user diff-highlight awscli
