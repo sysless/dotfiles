@@ -16,7 +16,7 @@ if [ `uname` == "Darwin" ]; then
 
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff python@2 python jq nvm telnet
+    brew install ack colordiff python jq nvm telnet yarn
 
     # Cask
     brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify android-file-transfer
@@ -47,7 +47,7 @@ if [ `uname` == "Darwin" ]; then
     # TODO: sound icon
     # TODO: bluetooth icon
     # TODO: disable spotlight
-elif [ `uname` == "Linux" ] && [ -z "${VSONLINE_BUILD}" ]; then
+  elif [ `uname` == "Linux" ] && [ -z "${VSONLINE_BUILD}" ]; then
     [ ! -f /etc/sudoers.d/$USER ] && sudo sh -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$USER"
 
     # Aptitude packages
@@ -82,7 +82,13 @@ elif [ `uname` == "Linux" ] && [ -z "${VSONLINE_BUILD}" ]; then
 	# TODO: install siji
 	[ -f /etc/fonts/conf.d/70-no-bitmaps.conf ] && sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 	[ ! -L /etc/default/keyboard ] && sudo ln -sf $DOTFILES/default/keyboard /etc/default/keyboard
-    fi
+  fi
+
+  # RVM
+  [ ! -f "$HOME/.rvm/bin/rvm" ] && curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+  # NVM
+  [ ! -d "$HOME/.nvm" ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 fi
 
 # shell
@@ -90,15 +96,11 @@ fi
 [ ! -L ~/.zshrc ] && ln -sf $DOTFILES/.zshrc ~/.zshrc
 [ "$SHELL" != "/bin/zsh" ] && chsh --shell /bin/zsh
 
-# RVM
-[ ! -f "$HOME/.rvm/bin/rvm" ] && curl -sSL https://get.rvm.io | bash -s stable --ruby
 
-# NVM
-[ ! -d "$HOME/.nvm" ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
-pip install --user diff-highlight awscli
+pip3 install --user diff-highlight awscli
 
 # TODO: install heroku toolbelt
 # TODO: install travis
