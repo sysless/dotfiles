@@ -54,7 +54,7 @@ plugins=(sudo git aws pip python pylint pep8 virtualenv django brew docker ssh-a
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.rvm/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/sbin:/usr/bin:/sbin:/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -117,11 +117,8 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+export PATH="$PATH:$HOME/Library/Python/3.8/bin"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -142,3 +139,8 @@ alias aws-login=aws-login
 if [ ! -z "${VSONLINE_BUILD}" ]; then
   export PATH=$PATH:/opt/oryx:/opt/nodejs/lts/bin:/opt/dotnet/sdks/lts:/opt/python/latest/bin:/opt/yarn/stable/bin:~/.local/bin:~/.npm-global/bin
 fi
+
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+eval "$(rbenv init -)"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
