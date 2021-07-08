@@ -16,12 +16,12 @@ if [ `uname` == "Darwin" ]; then
 
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && [ ! -f /opt/homebrew/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff python jq nvm telnet yarn
+    brew install ack colordiff python jq nvm telnet yarn fastlane
 
     # Cask
     brew install --cask spectacle google-chrome vlc alfred spotify android-file-transfer
     # Cask Dev
-    brew install --cask visual-studio-code android-studio fastlane aws-vault
+    brew install --cask visual-studio-code android-studio aws-vault
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
