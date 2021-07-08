@@ -19,9 +19,9 @@ if [ `uname` == "Darwin" ]; then
     brew install ack colordiff python jq nvm telnet yarn
 
     # Cask
-    brew cask install spectacle google-chrome skype vlc iterm2 alfred spotify android-file-transfer
+    brew install --cask spectacle google-chrome vlc alfred spotify android-file-transfer
     # Cask Dev
-    brew cask install docker visual-studio-code android-studio postman fastlane aws-vault google-cloud-sdk
+    brew install --cask visual-studio-code android-studio fastlane aws-vault
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
