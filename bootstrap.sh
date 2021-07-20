@@ -16,12 +16,15 @@ if [ `uname` == "Darwin" ]; then
 
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && [ ! -f /opt/homebrew/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ack colordiff python jq nvm telnet yarn fastlane
+    brew install ack colordiff python jq nvm telnet yarn fastlane cocoapods
+
+    # Sharp (https://github.com/lovell/sharp/issues/2460#issuecomment-740467735)
+    brew install pkg-config glib zlib vips libjpeg-turbo libpng webp
 
     # Cask
-    brew install --cask spectacle google-chrome vlc alfred spotify android-file-transfer
+    brew install --cask spectacle google-chrome vlc alfred spotify android-file-transfer discord homebrew/cask-drivers/logitech-g-hub whatsapp firefox
     # Cask Dev
-    brew install --cask visual-studio-code android-studio aws-vault
+    brew install --cask visual-studio-code android-studio aws-vault docker figma
 
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
@@ -101,6 +104,9 @@ fi
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
 pip3 install --user diff-highlight awscli
+
+# Node packages
+npm install -g ts-node
 
 # TODO: install heroku toolbelt
 # TODO: install travis
