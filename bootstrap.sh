@@ -16,6 +16,7 @@ if [ `uname` == "Darwin" ]; then
 
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && [ ! -f /opt/homebrew/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    export PATH=$PATH:/opt/homebrew/bin
     brew install ack colordiff python jq nvm telnet yarn fastlane cocoapods
 
     # Sharp (https://github.com/lovell/sharp/issues/2460#issuecomment-740467735)
