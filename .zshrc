@@ -121,6 +121,7 @@ fi
 
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 export PATH="$PATH:$HOME/Library/Python/3.8/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
