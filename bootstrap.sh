@@ -27,6 +27,11 @@ if [ `uname` == "Darwin" ]; then
     # Cask Dev
     brew install --cask visual-studio-code android-studio aws-vault docker figma
 
+    # React Native
+    brew install android-platform-tools watchman
+    brew tap homebrew/cask-versions
+    brew install zulu8
+
     # iTerm2 conf
     [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
 	rm /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist && \
