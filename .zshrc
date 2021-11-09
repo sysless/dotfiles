@@ -144,3 +144,6 @@ if [ ! -z "${VSONLINE_BUILD}" ]; then
 fi
 
 export PATH="$HOME/.fastlane/bin:$PATH"
+
+eval "$(rbenv init -)"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
