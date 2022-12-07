@@ -56,6 +56,7 @@ plugins=(sudo git aws pip python virtualenv brew docker ssh-agent)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/sbin:/usr/bin:/sbin:/bin"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Users/hiten/.local/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -146,4 +147,4 @@ fi
 export PATH="$HOME/.fastlane/bin:$PATH"
 
 eval "$(rbenv init -)"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:/.pyenv/shims:$PATH"
