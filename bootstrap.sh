@@ -20,12 +20,19 @@ if [ `uname` == "Darwin" ]; then
     brew install ack colordiff python jq nvm telnet yarn fastlane cocoapods
 
     # Sharp (https://github.com/lovell/sharp/issues/2460#issuecomment-740467735)
-    brew install pkg-config glib zlib vips libjpeg-turbo libpng webp
+    brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas
 
     # Cask
     brew install --cask spectacle google-chrome vlc alfred spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center
     # Cask Dev
     brew install --cask visual-studio-code android-studio aws-vault docker figma
+    # Mac App Store
+    mas install 803453959 # Slack
+    mas install 497799835 # Xcode
+    mas install 1437809329 # Surfshark VPN
+    mas install 425424353 # The Unarchiver
+    mas install 1193539993 # Brother iPrint&Scan
+    mas upgrade
 
     # React Native
     brew install android-platform-tools watchman
