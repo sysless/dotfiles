@@ -15,7 +15,7 @@ if [ `uname` == "Darwin" ]; then
     [ "$?" == "2" ] && xcode-select --install
 
     # Brew packages
-    [ ! -f /usr/local/bin/brew ] && [ ! -f /opt/homebrew/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    [ ! -f /usr/local/bin/brew ] && [ ! -f /opt/homebrew/bin/brew ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     export PATH=$PATH:/opt/homebrew/bin
     brew install ack colordiff python jq nvm telnet yarn fastlane cocoapods
 
