@@ -20,7 +20,7 @@ if [ `uname` == "Darwin" ]; then
     brew install ack colordiff python jq nvm telnet yarn fastlane cocoapods
 
     # Sharp (https://github.com/lovell/sharp/issues/2460#issuecomment-740467735)
-    brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas
+    brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas rbenv ruby-build
 
     # Cask
     brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center
