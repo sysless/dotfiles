@@ -32,11 +32,6 @@ if [ `uname` == "Darwin" ]; then
     brew tap homebrew/cask-versions
     brew install zulu8
 
-    # iTerm2 conf
-    [ ! -L /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist ] && \
-	rm /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist && \
-	ln -s $DOTFILES/com.googlecode.iterm2.plist /Users/$USER/Library/Preferences/com.googlecode.iterm2.plist
-
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
     [ "$SHELL" != "/bin/zsh" ] && chpass -s /bin/zsh
 
