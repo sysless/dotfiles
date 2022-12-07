@@ -27,7 +27,7 @@ if [ `uname` == "Darwin" ]; then
     pyenv global 3.10.8
 
     # Cask
-    brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center
+    brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center grammarly-desktop
     # Cask Dev
     brew install --cask visual-studio-code android-studio aws-vault docker figma
     # Mac App Store
