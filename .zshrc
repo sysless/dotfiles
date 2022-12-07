@@ -147,4 +147,4 @@ fi
 export PATH="$HOME/.fastlane/bin:$PATH"
 
 eval "$(rbenv init -)"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:/.pyenv/shims:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$HOME/.pyenv/shims:$PATH"
