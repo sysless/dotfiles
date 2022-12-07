@@ -37,7 +37,7 @@
 #  template = ~/.dotfiles/commit_template.txt
 
 [pull]
-	rebase = preserve
+	rebase = true
 [credential]
 	helper = !aws codecommit credential-helper $@
 	UseHttpPath = true
