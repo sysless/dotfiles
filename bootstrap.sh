@@ -23,7 +23,7 @@ if [ `uname` == "Darwin" ]; then
     brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas
 
     # Cask
-    brew install --cask spectacle google-chrome vlc alfred spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center
+    brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center
     # Cask Dev
     brew install --cask visual-studio-code android-studio aws-vault docker figma
     # Mac App Store
