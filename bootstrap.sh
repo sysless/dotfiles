@@ -43,6 +43,10 @@ if [ `uname` == "Darwin" ]; then
     brew tap homebrew/cask-versions
     brew install zulu8
 
+    # DBT
+    brew tap dbt-labs/dbt
+    brew install dbt-bigquery
+
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
     [ "$SHELL" != "/bin/zsh" ] && chpass -s /bin/zsh
 
