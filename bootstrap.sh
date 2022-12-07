@@ -29,7 +29,7 @@ if [ `uname` == "Darwin" ]; then
     # Cask
     brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center grammarly-desktop
     # Cask Dev
-    brew install --cask visual-studio-code android-studio aws-vault docker figma
+    brew install --cask visual-studio-code android-studio aws-vault docker figma google-cloud-sdk
     # Mac App Store
     mas install 803453959 # Slack
     mas install 497799835 # Xcode
