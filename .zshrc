@@ -148,3 +148,5 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 eval "$(rbenv init -)"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$HOME/.pyenv/shims:$PATH"
+
+export HISTFILE="$HOME/.zsh_history"
