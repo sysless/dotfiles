@@ -150,3 +150,5 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$HOME/.pyenv/shims:$PATH"
 
 export HISTFILE="$HOME/.zsh_history"
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"

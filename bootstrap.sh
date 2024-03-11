@@ -17,35 +17,35 @@ if [ `uname` == "Darwin" ]; then
     # Brew packages
     [ ! -f /usr/local/bin/brew ] && [ ! -f /opt/homebrew/bin/brew ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     export PATH=$PATH:/opt/homebrew/bin
-    brew install ack colordiff python jq nvm telnet yarn fastlane cocoapods
+    brew install jq nvm yarn
 
     # Sharp (https://github.com/lovell/sharp/issues/2460#issuecomment-740467735)
-    brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas rbenv ruby-build pyenv
+    # brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas rbenv ruby-build pyenv
 
     # Python global
-    pyenv install 3.10.8
-    pyenv global 3.10.8
+    #pyenv install 3.10.8
+    #pyenv global 3.10.8
 
     # Cask
     brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom homebrew/cask-drivers/elgato-control-center grammarly-desktop
     # Cask Dev
-    brew install --cask visual-studio-code android-studio aws-vault docker figma google-cloud-sdk
+    brew install --cask visual-studio-code aws-vault figma google-cloud-sdk
     # Mac App Store
+    brew install mas
     mas install 803453959 # Slack
     mas install 497799835 # Xcode
-    mas install 1437809329 # Surfshark VPN
     mas install 425424353 # The Unarchiver
     mas install 1193539993 # Brother iPrint&Scan
     mas upgrade
 
     # React Native
-    brew install android-platform-tools watchman
-    brew tap homebrew/cask-versions
-    brew install zulu8
+    # brew install android-studio android-platform-tools watchman fastlane cocoapods
+    # brew tap homebrew/cask-versions
+    # brew install zulu8
 
     # DBT
-    brew tap dbt-labs/dbt
-    brew install dbt-bigquery
+    # brew tap dbt-labs/dbt
+    # brew install dbt-bigquery
 
     [ ! -L ~/.myzshrc ] && ln -sf $DOTFILES/.myzshrc_mac ~/.myzshrc
     [ "$SHELL" != "/bin/zsh" ] && chpass -s /bin/zsh
