@@ -111,18 +111,10 @@ if [ -f $HOME/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
 fi
 
 unset NPM_CONFIG_PREFIX
-export NVM_DIR="$HOME/.nvm"
 if [ -x "$(command -v brew)" ]; then
   source $(brew --prefix nvm)/nvm.sh  # This loads nvm
+  source $(brew --prefix nvm)/etc/bash_completion.d/nvm  # This loads bash_completion
 fi
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-export PATH="$PATH:$HOME/Library/Python/2.7/bin"
-export PATH="$PATH:$HOME/Library/Python/3.8/bin"
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`

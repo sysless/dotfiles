@@ -10,6 +10,16 @@ fi
 
 export DOTFILES=~/.dotfiles
 
+# shell
+[ ! -d ~/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+[ ! -L ~/.zshrc ] && ln -sf $DOTFILES/.zshrc ~/.zshrc
+[ "$SHELL" != "/bin/zsh" ] && chsh --shell /bin/zsh
+# symlink common files
+[ ! -L ~/.emacs ] && ln -sf $DOTFILES/.emacs ~/
+[ ! -L ~/.tmux.conf ] && ln -sf $DOTFILES/.tmux.conf ~/
+[ ! -L ~/.gitconfig ] && ln -sf $DOTFILES/.gitconfig ~/
+[ ! -L ~/.eslintrc.js ] && ln -sf $DOTFILES/.eslintrc.js ~/
+
 if [ `uname` == "Darwin" ]; then
     xcode-select -p
     [ "$?" == "2" ] && xcode-select --install
@@ -19,17 +29,25 @@ if [ `uname` == "Darwin" ]; then
     export PATH=$PATH:/opt/homebrew/bin
     brew install jq nvm yarn
 
+    # Node
+    source $(brew --prefix nvm)/nvm.sh
+    nvm install --lts # Install the latest LTS version
+
     # Sharp (https://github.com/lovell/sharp/issues/2460#issuecomment-740467735)
     # brew install pkg-config glib zlib vips libjpeg-turbo libpng webp mas rbenv ruby-build pyenv
 
     # Python global
+    brew install python pyenv
     #pyenv install 3.10.8
     #pyenv global 3.10.8
 
     # Cask
-    brew install --cask raycast spectacle google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman loom elgato-control-center grammarly-desktop
+    brew install --cask raycast google-chrome vlc spotify android-file-transfer discord whatsapp firefox superhuman elgato-control-center grammarly-desktop notion-calendar
     # Cask Dev
     brew install --cask visual-studio-code aws-vault figma google-cloud-sdk
+    # Cask 3D printing
+    softwareupdate --install-rosetta --agree-to-license # required for autodesk-fusion
+    brew install --cask bambu-studio # autodesk-fusion
     # Mac App Store
     brew install mas
     mas install 803453959 # Slack
@@ -60,12 +78,14 @@ if [ `uname` == "Darwin" ]; then
 
     [ ! -d ~/Downloads/screencapture ] && mkdir ~/Downloads/screencapture && \
     defaults write com.apple.screencapture location /Users/hiten/Downloads/screencapture
+    defaults write com.apple.Finder AppleShowAllFiles true
 
     # TODO: install powerline fonts
     # TODO: change default browser
     # TODO: sound icon
     # TODO: bluetooth icon
     # TODO: disable spotlight
+    # TODO: install kensington works
   elif [ `uname` == "Linux" ] && [ -z "${VSONLINE_BUILD}" ]; then
     [ ! -f /etc/sudoers.d/$USER ] && sudo sh -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$USER"
 
@@ -111,27 +131,8 @@ if [ `uname` == "Darwin" ]; then
   nvm install --lts # Install the latest LTS version
 fi
 
-# shell
-[ ! -d ~/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-[ ! -L ~/.zshrc ] && ln -sf $DOTFILES/.zshrc ~/.zshrc
-[ "$SHELL" != "/bin/zsh" ] && chsh --shell /bin/zsh
-
-
-
 # Python packages
 export PIP_REQUIRE_VIRTUALENV=false
-pip3 install --user diff-highlight awscli
-
-# Node packages
-npm install -g ts-node
-
-# TODO: install heroku toolbelt
-# TODO: install travis
-
-# symlink common files
-[ ! -L ~/.emacs ] && ln -sf $DOTFILES/.emacs ~/
-[ ! -L ~/.tmux.conf ] && ln -sf $DOTFILES/.tmux.conf ~/
-[ ! -L ~/.gitconfig ] && ln -sf $DOTFILES/.gitconfig ~/
-[ ! -L ~/.eslintrc.js ] && ln -sf $DOTFILES/.eslintrc.js ~/
+pip3 install --user diff-highlight awscli virtualenv
 
 exit 0
