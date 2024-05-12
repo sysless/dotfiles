@@ -8,7 +8,11 @@ if [ "$USER" == "root" ]; then
     exit 1
 fi
 
-export DOTFILES=~/.dotfiles
+if [ -d ~/.dotfiles ]; then
+  export DOTFILES="~/.dotfiles"
+elif [ -d /workspaces/.codespaces/.persistedshare/dotfiles ]; then
+  export DOTFILES="/workspaces/.codespaces/.persistedshare/dotfiles"
+fi
 
 # symlink common files
 [ ! -L ~/.zshrc ] && ln -sf $DOTFILES/.zshrc ~/.zshrc
