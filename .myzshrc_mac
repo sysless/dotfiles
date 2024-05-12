@@ -3,3 +3,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 alias diff="colordiff -u"
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
+
+# aws-vault
+export AWS_VAULT_KEYCHAIN_NAME="login"
+function aws-login() { aws-vault login --stdout "$@" | xargs -t /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --incognito --new-window }
+alias aws-login=aws-login

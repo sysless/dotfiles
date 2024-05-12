@@ -34,8 +34,8 @@
 	required = true
 	process = git-lfs filter-process
 
-#[commit]
-#  template = ~/.dotfiles/commit_template.txt
+[commit]
+  template = ~/.dotfiles/commit_template.txt
 
 [pull]
 	rebase = true
