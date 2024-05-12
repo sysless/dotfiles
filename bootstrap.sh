@@ -12,6 +12,7 @@ if [ -d ~/.dotfiles ]; then
   export DOTFILES="~/.dotfiles"
 elif [ -d /workspaces/.codespaces/.persistedshare/dotfiles ]; then
   export DOTFILES="/workspaces/.codespaces/.persistedshare/dotfiles"
+  ln -sf $DOTFILES ~/.dotfiles
 fi
 
 # symlink common files
