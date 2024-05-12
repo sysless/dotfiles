@@ -8,7 +8,7 @@ if [ "$USER" == "root" ]; then
     exit 1
 fi
 
-[ ! -d ~/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+[ ! -d ~/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if [ `uname` == "Darwin" ]; then
   xcode-select -p
@@ -81,7 +81,6 @@ if [ `uname` == "Darwin" ]; then
 elif [ `uname` == "Linux" ]; then
   # Linux?
 	[ ! -f ~/.fonts/Monaco\ for\ Powerline.otf ] && wget -P ~/.fonts/ https://raw.githubusercontent.com/supermarin/powerline-fonts/master/Monaco/Monaco%20for%20Powerline.otf
-  [ "$SHELL" != "/bin/zsh" ] && chsh --shell /bin/zsh
 fi
 
 exit 0

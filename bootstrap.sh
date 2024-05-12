@@ -15,9 +15,10 @@ elif [ -d /workspaces/.codespaces/.persistedshare/dotfiles ]; then
   ln -sf $DOTFILES ~/.dotfiles
 fi
 
+[ -f "/usr/bin/zsh" ] && sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
+
 # symlink common files
 [ ! -L ~/.zshrc ] && ln -sf $DOTFILES/.zshrc ~/.zshrc
-[ ! -L ~/.emacs ] && ln -sf $DOTFILES/.emacs ~/
 [ ! -L ~/.gitconfig ] && ln -sf $DOTFILES/.gitconfig ~/
 [ ! -L ~/.eslintrc.js ] && ln -sf $DOTFILES/.eslintrc.js ~/
 
