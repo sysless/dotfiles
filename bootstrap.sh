@@ -22,4 +22,8 @@ fi
 [ ! -L ~/.gitconfig ] && ln -sf $DOTFILES/.gitconfig ~/
 [ ! -L ~/.eslintrc.js ] && ln -sf $DOTFILES/.eslintrc.js ~/
 
+# AWS config
+[ ! -d ~/.aws ] && mkdir ~/.aws
+[ ! -d ~/.awsvault/keys ] && mkdir -p ~/.awsvault/keys
+
 exit 0
