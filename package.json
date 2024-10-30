@@ -5,6 +5,7 @@
   "repository": "https://github.com/sysless/dotfiles",
   "author": "Arthur Lorotte de Banes <arthur@sysless.com>",
   "license": "MIT",
+  "type": "module",	
   "dependencies": {
     "@eslint/js": "^9.13.0",
     "@types/eslint__js": "^8.42.3",
