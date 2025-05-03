@@ -12,9 +12,24 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Users/hiten/.local/bin:$PATH"
 
-source $ZSH/oh-my-zsh.sh
-
 export EDITOR='code'
+
+# code cli
+if [ -d "/home/$USER/.vscode-server/bin" ]; then
+  vscode_path=$(find /home/$USER/.vscode-server/bin -maxdepth 1 -type l | tail -n 1)
+  if [ -n "$vscode_path" ]; then
+    export PATH="$vscode_path/bin/remote-cli:$PATH"
+  fi
+elif [ -d "/home/$USER/.vscode-server-insiders/bin" ]; then
+  vscode_path=$(find /home/$USER/.vscode-server-insiders/bin -maxdepth 1 -type l | tail -n 1)
+  if [ ! -f "$HOME/.bin/code" ]; then
+    mkdir -p "$HOME/.bin"
+    ln -sf "$vscode_path/bin/remote-cli/code-insiders" "$HOME/.bin/code"
+  fi
+  export PATH="$HOME/.bin:$PATH"
+fi
+
+source $ZSH/oh-my-zsh.sh
 
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true

@@ -27,11 +27,4 @@ ln -sf "$DOTFILES/.eslintrc.js" "$HOME/"
 [ ! -d "$HOME/.aws" ] && mkdir "$HOME/.aws"
 [ ! -d "$HOME/.awsvault/keys" ] && mkdir -p "$HOME/.awsvault/keys"
 
-# code cli
-if [ -d "/home/$USER/.vscode-server/bin" ]; then
-  export PATH="/home/$USER/.vscode-server/bin/*/bin:$PATH"
-elif [ -d "/home/$USER/.vscode-server-insiders/bin" ]; then
-  export PATH="/home/$USER/.vscode-server-insiders/bin/*/bin:$PATH"
-fi
-
 exit 0
